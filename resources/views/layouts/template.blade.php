@@ -122,13 +122,13 @@
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
+                  <p>List of Lecture Groups</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
+                  <p>List of Lecture Halls</p>
                 </a>
               </li>
             </ul>

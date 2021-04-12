@@ -38,3 +38,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::delete('/students/{student}', 'StudentController@destroy')->name('students.destroy');
 Route::resource('students', 'StudentController');
 Route::resource('subjects', 'SubjectController');
+Route::resource('groups', 'GroupController');
+Route::resource('halls', 'HallController');
