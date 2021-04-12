@@ -24,7 +24,7 @@
         <th>Email</th>
         <!-- <th>Group</th> -->
         <th>Joined On</th>
-        <th width="280px">Action</th>
+        <!-- <th width="280px">Action</th> -->
     </tr>
     @foreach ($students as $s)
     <tr>
@@ -33,7 +33,7 @@
         <td>{{ $s->email }}</td>
         <!-- <td>{{ $s->group->name ?? '' }}</td> -->
         <td>{{ $s->created_at }}</td>
-        <td>
+        <!-- <td>
             <form action="{{ route('students.destroy',$s->id) }}" method="POST">
 
                 <a class="btn btn-info" href="{{ route('students.show',$s->id) }}">Show</a>
@@ -45,7 +45,7 @@
     
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-        </td>
+        </td> -->
     </tr>
     @endforeach
 </table>
