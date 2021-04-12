@@ -26,7 +26,7 @@ class GroupController extends Controller
     {
         $groups = Group::all();
 
-        return view('subjects.index', compact('groups'));
+        return view('groups.index', compact('groups'));
     }
 
     /**

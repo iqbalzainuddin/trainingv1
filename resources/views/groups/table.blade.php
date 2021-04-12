@@ -30,11 +30,11 @@
         <td>{{ $g->name }}</td>
         <td>{{ $g->part }}</td>
         <td>
-            <form action="{{ route('groups.destroy',$s->id) }}" method="POST">
+            <form action="{{ route('groups.destroy',$g->id) }}" method="POST">
 
-                <a class="btn btn-info" href="{{ route('groups.show',$s->id) }}">Show</a>
+                <a class="btn btn-info" href="{{ route('groups.show',$g->id) }}">Show</a>
 
-                <a class="btn btn-primary" href="{{ route('groups.edit',$s->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('groups.edit',$g->id) }}">Edit</a>
 
                 @csrf
                 @method('DELETE')
