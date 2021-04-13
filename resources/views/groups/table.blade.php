@@ -1,3 +1,4 @@
+@section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb mt-3 mb-3">
         <div class="pull-left">
@@ -45,3 +46,4 @@
     </tr>
     @endforeach
 </table>
+@endsection

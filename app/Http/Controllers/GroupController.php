@@ -36,7 +36,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('groups.create');
     }
 
     /**
@@ -47,7 +47,20 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'part' => 'required'
+        ]);
+
+        // DB::table('subjects')->insert([
+        //     'course_code' => $request->course_code,
+        //     'course_name' => $request->course_name,
+        //     'semester' => $request->semester,
+        // ]);
+
+        Group::create($request->all());
+
+        return redirect()->route('groups.index')->with('success', 'Group created successfully!');
     }
 
     /**
@@ -58,7 +71,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return view('groups.show', compact('group'));
     }
 
     /**
@@ -69,7 +82,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('groups.edit', compact('group'));
     }
 
     /**
@@ -81,7 +94,14 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'part' => 'required'
+        ]);
+
+        $group->update($request->all());
+
+        return redirect()->route('groups.index')->with('success', 'Group updated successfully!');
     }
 
     /**
@@ -92,6 +112,8 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $group->delete();
+
+        return redirect()->route('groups.index')->with('success', 'Group deleted successfully!');
     }
 }
