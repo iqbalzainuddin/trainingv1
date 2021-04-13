@@ -40,3 +40,4 @@ Route::resource('students', 'StudentController');
 Route::resource('subjects', 'SubjectController');
 Route::resource('groups', 'GroupController');
 Route::resource('halls', 'HallController');
+Route::resource('timetables', 'TimetableController');
