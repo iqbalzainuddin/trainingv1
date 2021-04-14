@@ -26,8 +26,16 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Group:</strong>
-                
+                @foreach ($student as $s)
+                    @if(!$s->lecture_groups == null)
+                    {{ $s->lecture_groups->name }}
+                    @endif
+                @endforeach 
             </div>
+        </div>
+        <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('students.edit', Auth::user()->id) }}"> Edit</a>
         </div>
     </div>
 </div>

@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/students/{student}/edit', 'StudentController@edit')->name('students.edit');
 // Route::put('/students/{student}', 'StudentController@update')->name('students.update');
 // Route::delete('/students/{student}', 'StudentController@destroy')->name('students.destroy');
-Route::resource('students', 'StudentController')->only(['index']);
+Route::resource('students', 'StudentController')->only(['index', 'edit', 'update']);
 Route::resource('subjects', 'SubjectController');
 Route::resource('groups', 'GroupController');
 Route::resource('halls', 'HallController');

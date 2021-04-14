@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Group;
 use Hash;
 use DB;
 
@@ -26,7 +27,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('students.index');
+        $student = User::with('lecture_groups')->where('id', auth()->user()->id)->get();
+        // dd($student);
+        return view('students.index', compact('student'));
     }
 
     /**
@@ -67,9 +70,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $student)
     {
-        //
+        $groups = Group::pluck('name', 'id');
+
+        return view('students.edit',compact('student', 'groups'));
     }
 
     /**
@@ -79,9 +84,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $student)
     {
-        //
+        $student->update($request->all());
+
+        return redirect()->route('students.index')->with('success','Student\'s details updated successfully');
     }
 
     /**
