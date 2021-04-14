@@ -1,51 +1,37 @@
+@extends('layouts.template')
+
+@section('content')
+<div class="container pt-5">
 <div class="row">
-    <div class="col-lg-12 margin-tb mt-3 mb-3">
-        <div class="pull-left">
-            <h2>List of Students</h2>
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2> Show Subject Details</h2>
+            </div>
         </div>
-        @if (Route::has('students.create'))
+    </div>
+   
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Subject Name:</strong>
+                {{ $subject->course_name }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Subject Code:</strong>
+                {{ $subject->course_code }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Semester:</strong>
+                {{ $subject->semester }}
+            </div>
+        </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('students.create') }}"> Add New Student</a>
+                <a class="btn btn-primary" href="{{ route('subjects.index') }}"> Back</a>
         </div>
-        @endif
     </div>
 </div>
-
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-@endif
-
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>Name</th>
-        <th>Email</th>
-        <!-- <th>Group</th> -->
-        <th>Joined On</th>
-        <!-- <th width="280px">Action</th> -->
-    </tr>
-    @foreach ($students as $s)
-    <tr>
-        <td>{{ $s->id }}</td>
-        <td>{{ $s->name }}</td>
-        <td>{{ $s->email }}</td>
-        <!-- <td>{{ $s->group->name ?? '' }}</td> -->
-        <td>{{ $s->created_at }}</td>
-        <!-- <td>
-            <form action="{{ route('students.destroy',$s->id) }}" method="POST">
-
-                <a class="btn btn-info" href="{{ route('students.show',$s->id) }}">Show</a>
-
-                <a class="btn btn-primary" href="{{ route('students.edit',$s->id) }}">Edit</a>
-
-                @csrf
-                @method('DELETE')
-    
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </td> -->
-    </tr>
-    @endforeach
-</table>
+@endsection
