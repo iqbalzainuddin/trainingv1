@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterHallsTable extends Migration
+class AlterUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class AlterHallsTable extends Migration
      */
     public function up()
     {
-        Schema::rename('lecture_halls', 'halls');
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedInteger('group_id')->nullable()->after('name');
+        });
     }
 
     /**

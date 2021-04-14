@@ -26,8 +26,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = User::latest()->paginate(5);
-        return view('students.index', compact('students'));
+        return view('students.index');
     }
 
     /**

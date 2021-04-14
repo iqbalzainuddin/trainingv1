@@ -38,8 +38,6 @@
             <td>{{ $t->time_to }}</td>
             <td>
                 <form action="{{ route('timetables.destroy',$t->id) }}" method="POST">
-   
-                    <!-- <a class="btn btn-info" href="{{ route('timetables.show',$t->id) }}">Show</a> -->
     
                     <a class="btn btn-primary" href="{{ route('timetables.edit',$t->id) }}">Edit</a>
    
