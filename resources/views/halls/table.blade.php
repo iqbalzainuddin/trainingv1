@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb mt-3 mb-3">
         <div class="pull-left">
-            <h2>List of Lecture Groups</h2>
+            <h2>List of Lecture Halls</h2>
         </div>
         @if (Route::has('groups.create'))
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('groups.create') }}"> Add New Subject</a>
+            <a class="btn btn-success" href="{{ route('halls.create') }}"> Add New Hall</a>
         </div>
         @endif
     </div>
@@ -21,20 +21,20 @@
     <tr>
         <th>No</th>
         <th>Name</th>
-        <th>Part</th>
+        <th>Place</th>
         <th width="280px">Action</th>
     </tr>
-    @foreach ($groups as $g)
+    @foreach ($halls as $g)
     <tr>
         <td>{{ $g->id }}</td>
         <td>{{ $g->name }}</td>
-        <td>{{ $g->part }}</td>
+        <td>{{ $g->place }}</td>
         <td>
-            <form action="{{ route('groups.destroy',$g->id) }}" method="POST">
+            <form action="{{ route('halls.destroy',$g->id) }}" method="POST">
 
-                <a class="btn btn-info" href="{{ route('groups.show',$g->id) }}">Show</a>
+                <a class="btn btn-info" href="{{ route('halls.show',$g->id) }}">Show</a>
 
-                <a class="btn btn-primary" href="{{ route('groups.edit',$g->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('halls.edit',$g->id) }}">Edit</a>
 
                 @csrf
                 @method('DELETE')

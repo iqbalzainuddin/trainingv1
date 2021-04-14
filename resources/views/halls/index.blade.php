@@ -1,5 +1,5 @@
 @extends('layouts.template')
 
 @section('content')
-    @include('groups.table')
+    @include('halls.table')
 @endsection

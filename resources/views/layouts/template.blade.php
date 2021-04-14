@@ -126,7 +126,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('halls.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List of Lecture Halls</p>
                 </a>
